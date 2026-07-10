@@ -1,0 +1,121 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{title}}</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f4f4;
+      }
+
+      header {
+        background: #111;
+        color: white;
+        padding: 18px;
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      header p {
+        margin: 6px 0 0;
+      }
+
+      main {
+        padding: 18px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      button {
+        padding: 10px 14px;
+        cursor: pointer;
+      }
+
+      .landing-container {
+        max-width: 500px;
+        margin: 50px auto;
+        background: white;
+        padding: 30px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        text-align: center;
+      }
+
+      .login-box {
+        max-width: 400px;
+        background: white;
+        padding: 20px;
+        margin: 30px auto;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      .form-row {
+        margin-bottom: 12px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .error {
+        color: red;
+        min-height: 20px;
+      }
+
+      .library-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin-top: 25px;
+      }
+
+      .library-panel {
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 20px;
+        min-height: 400px;
+      }
+
+      .book-row {
+        margin-bottom: 14px;
+        line-height: 1.4;
+      }
+
+      .book-row input {
+        margin-right: 8px;
+      }
+
+      .library-panel button {
+        margin-top: 20px;
+        min-width: 100px;
+      }
+
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+
+      @media (max-width: 700px) {
+        .library-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      {{{body}}}
+    </main>
+  </body>
+</html>

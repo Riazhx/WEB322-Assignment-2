@@ -1,0 +1,87 @@
+{{> header}}
+
+<h2>Library Home</h2>
+
+<p>Signed in as: {{username}}</p>
+
+<div class="library-grid">
+
+  <div class="library-panel">
+    <h3>Available Books</h3>
+
+    <form method="POST" action="/borrow">
+      {{#each availableBooks}}
+        <div class="book-row">
+          <input
+            type="checkbox"
+            name="selectedBooks"
+            value="{{title}}"
+            id="available-{{@index}}"
+            onchange="updateBorrowButton()"
+          />
+
+          <label for="available-{{@index}}">
+            <strong>{{title}}</strong>
+            by
+            {{author}}
+          </label>
+        </div>
+      {{else}}
+        <p>No books are currently available.</p>
+      {{/each}}
+
+      <button type="submit" id="borrowButton" disabled>
+        Borrow
+      </button>
+    </form>
+  </div>
+
+  <div class="library-panel">
+    <h3>Borrowed Books</h3>
+
+    <p><strong>{{username}}</strong></p>
+
+    <form method="POST" action="/return">
+      {{#each borrowedBooks}}
+        <div class="book-row">
+          <input
+            type="checkbox"
+            name="selectedBooks"
+            value="{{title}}"
+            id="borrowed-{{@index}}"
+            onchange="updateReturnButton()"
+          />
+
+          <label for="borrowed-{{@index}}">
+            <strong>{{title}}</strong>
+            by
+            {{author}}
+          </label>
+        </div>
+      {{else}}
+        <p>No books are currently borrowed.</p>
+      {{/each}}
+
+      <button type="submit" id="returnButton" disabled>
+        Return
+      </button>
+    </form>
+  </div>
+
+</div>
+
+<p>
+  <a href="/logout">Logout</a>
+</p>
+
+<script>
+  function updateBorrowButton() { const checkedBooks =
+  document.querySelectorAll(
+  'input[name="selectedBooks"][id^="available-"]:checked' );
+  document.getElementById("borrowButton").disabled = checkedBooks.length === 0;
+  } function updateReturnButton() { const checkedBooks =
+  document.querySelectorAll(
+  'input[name="selectedBooks"][id^="borrowed-"]:checked' );
+  document.getElementById("returnButton").disabled = checkedBooks.length === 0;
+  }
+</script>
