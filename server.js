@@ -8,15 +8,15 @@ const exphbs = require("express-handlebars");
 const session = require("express-session");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const SITE_TITLE = "Honest Library";
 
-const USER_FILE = path.join(__dirname, "users.json");
-const BOOKS_FILE = path.join(__dirname, "books.json");
+const USER_FILE = path.join(process.cwd(), "users.json");
+const BOOKS_FILE = path.join(process.cwd(), "books.json");
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(process.cwd(), "public")));
 
 app.use(
   session({
@@ -227,3 +227,5 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
+module.exports = app;

@@ -1,0 +1,11 @@
+{
+  "functions": {
+    "server.js": {
+      "includeFiles": [
+        "views/**",
+        "books.json",
+        "users.json"
+      ]
+    }
+  }
+}
